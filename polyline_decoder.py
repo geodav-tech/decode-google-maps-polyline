@@ -15,7 +15,7 @@ def decode_polyline(polyline_str):
 
             while True:
                 byte = ord(polyline_str[index]) - 63
-                index+=1
+                index += 1
                 result |= (byte & 0x1f) << shift
                 shift += 5
                 if not byte >= 0x20:
@@ -38,7 +38,8 @@ def convert_to_shapefile(steps, output_shapefile):
     '''Pass the steps object returned by the Maps API (should be response['routes'][0]['legs'][0]['steps'])
     and an output shapefile path; outputs a detailed shapefile of that route'''
     
-    import arcpy, os
+    import arcpy
+    import os
 
     # Decode each step of the route; add those coordinate pairs to a list
     total_route = []
